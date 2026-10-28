@@ -1,0 +1,105 @@
+{
+  "actions" : {
+    "CopyClipIntent" : {
+      "assistantDefinedSchemaTraits" : [],
+      "assistantDefinedSchemas" : [],
+      "authenticationPolicy" : 0,
+      "availabilityAnnotations" : {
+        "LNPlatformNameWildcard" : {
+          "introducedVersion" : "*"
+        }
+      },
+      "descriptionMetadata" : {
+        "descriptionText" : {
+          "alternatives" : [],
+          "key" : "Copy to clipboard"
+        },
+        "searchKeywords" : []
+      },
+      "effectiveBundleIdentifiers" : [],
+      "fullyQualifiedTypeName" : "PaperclipWidgets.CopyClipIntent",
+      "identifier" : "CopyClipIntent",
+      "isAuthPolExplicit" : false,
+      "isDiscoverable" : false,
+      "mangledTypeName" : "16PaperclipWidgets14CopyClipIntentV",
+      "mangledTypeNameByBundleIdentifier" : {},
+      "mangledTypeNameByBundleIdentifierV2" : {},
+      "mangledTypeNameV2" : "16PaperclipWidgets14CopyClipIntentV",
+      "openAppWhenRun" : false,
+      "outputFlags" : 0,
+      "parameters" : [
+        {
+          "capabilities" : 0,
+          "dynamicOptionsSupport" : 0,
+          "inputConnectionBehavior" : 0,
+          "isInput" : false,
+          "isOptional" : false,
+          "name" : "clipID",
+          "resolvableInputTypes" : [],
+          "title" : {
+            "alternatives" : [],
+            "key" : "Clip ID"
+          },
+          "typeSpecificMetadata" : [],
+          "valueType" : {
+            "primitive" : {
+              "wrapper" : {
+                "typeIdentifier" : 0
+              }
+            }
+          }
+        },
+        {
+          "capabilities" : 0,
+          "dynamicOptionsSupport" : 0,
+          "inputConnectionBehavior" : 0,
+          "isInput" : false,
+          "isOptional" : false,
+          "name" : "copyText",
+          "resolvableInputTypes" : [],
+          "title" : {
+            "alternatives" : [],
+            "key" : "Copy Text"
+          },
+          "typeSpecificMetadata" : [],
+          "valueType" : {
+            "primitive" : {
+              "wrapper" : {
+                "typeIdentifier" : 0
+              }
+            }
+          }
+        }
+      ],
+      "presentationStyle" : 0,
+      "requiredCapabilities" : [],
+      "supportedModes" : 1,
+      "systemProtocolMetadata" : [],
+      "systemProtocolMetadataV2" : [],
+      "systemProtocols" : [],
+      "title" : {
+        "alternatives" : [],
+        "key" : "Copy"
+      },
+      "typeSpecificMetadata" : [],
+      "visibilityMetadata" : {
+        "assistantOnly" : false,
+        "isDiscoverable" : false
+      }
+    }
+  },
+  "assistantEntities" : [],
+  "assistantIntentNegativePhrases" : [],
+  "assistantIntents" : [],
+  "autoShortcuts" : [],
+  "entities" : {},
+  "enums" : [],
+  "generator" : {
+    "name" : "xcode-tools",
+    "version" : "17F113"
+  },
+  "negativePhrases" : [],
+  "queries" : {},
+  "shortcutTileColor" : 14,
+  "version" : 1
+}

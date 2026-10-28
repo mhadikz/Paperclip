@@ -1,0 +1,47 @@
+---
+description: Paperclip macOS app — architecture, privacy, and handoff rules for all sessions
+alwaysApply: true
+---
+
+# Paperclip project rules
+
+This is a native macOS clipboard manager + optional AI Memory (`com.mhadikz.Paperclip`), published as open source (MIT).
+
+## Read first in every new session
+
+1. `README.md`
+2. `AGENTS.md`
+3. `docs/STATUS.md`
+4. Task-specific doc under `docs/` (see `docs/INDEX.md`)
+
+## Architecture
+
+- SwiftUI + MVVM + feature modules + Clean Architecture + DI + Swift Concurrency
+- Layers: `App/` · `Features/` · `Domain/` · `Data/` · `Core/`
+- Composition root: `Paperclip/App/DependencyContainer.swift` (no new singletons)
+- Views → ViewModels → UseCases → Domain protocols; Data implements protocols
+- Pure logic lives in `Domain/Services`; AI is reached only via `AIMemoryServicing`
+- Write `@ViewState`, never `@State` (Command Line Tools cannot expand the SDK macro)
+
+## Hard invariants
+
+- Capture path must never await AI, OCR, image encoding or disk encoding
+- Menu bar clips must ignore History/AI `searchText` (`displayedClips` unfiltered)
+- History is a non-activating `NSPanel`; the previous app keeps focus for ⌘V
+- Settings open via `PreferencesWindowController` / `AppRouter` (no SwiftUI Settings scene)
+- AI is optional; clipboard must work without Foundation Models
+- Never log clipboard content / secrets (`AppLogger` only)
+- AI metadata is a sidecar — clearing it must keep history
+- Duplicate copies bump the existing clip; concealed/transient pasteboard types are skipped
+
+## Build & test
+
+`./scripts/check.sh` (typecheck) · `./scripts/test.sh` (77 tests, no XCTest) · `./scripts/build.sh` (install to `~/Applications`) · `./scripts/render-previews.sh` (UI PNGs). Regenerate the Xcode project with `python3 scripts/generate-xcodeproj.py` after adding files.
+
+## Product stance
+
+Local-only by default. No cloud AI default. No iCloud sync unless explicitly requested. Clipboard-first, not chatbot-first. Add tests for behavior changes; update `docs/STATUS.md` and `CHANGELOG.md`.
+
+## Design
+
+Use `Paperclip/Core/Design/` (`AppTheme`, `AppPalette`, `GlassChrome`). Brand colors only from `AppPalette` (navy/gold/white, Light/Dark). Window glass + interactive chrome; cards/chips are tinted surfaces, not nested `glassEffect`. Glass strength is `AppSettings.glassTintAmount`; appearance is `AppSettings.appearanceMode`. Light tints white, Dark tints midnight. Opaque surfaces when Reduce Transparency is on (`appGlassDisabled`).

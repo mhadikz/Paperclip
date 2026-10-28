@@ -1,0 +1,36 @@
+# Builds the universal app and attaches zip + DMG + SHA256SUMS to a GitHub Release.
+# Trigger: push a tag like v1.3.0 (git tag v1.3.0 && git push origin v1.3.0).
+# The landing page's download button reads the latest release through the GitHub API.
+name: Release
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  release:
+    # Build on the newest SDK so shipped builds include Liquid Glass and Foundation Models support.
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+      - name: Type-check and test
+        run: |
+          ./scripts/check.sh
+          ./scripts/test.sh
+      - name: Build universal app (ad-hoc signed)
+        run: ./scripts/build.sh --release --no-install
+      - name: Package
+        run: ./scripts/package.sh
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cat > notes.md <<'NOTES'
+          Universal build (Apple Silicon + Intel), macOS 14 or later.
+
+          **First launch:** builds are signed but not notarized, so macOS shows "the developer cannot be verified" once.
+          Right-click the app → Open → Open, or run `xattr -d com.apple.quarantine /Applications/Paperclip.app`.
+
+          Verify the download with `shasum -a 256 -c SHA256SUMS.txt`. Full changes are in CHANGELOG.md.
+          NOTES
+          gh release create "$GITHUB_REF_NAME" build/dist/* --title "Paperclip $GITHUB_REF_NAME" --notes-file notes.md

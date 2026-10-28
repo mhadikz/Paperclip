@@ -1,0 +1,39 @@
+# Azure Pipelines: build + test on a macOS agent using only the Command Line Tools path.
+# No Xcode-specific steps, no signing secrets needed for CI.
+trigger:
+  branches:
+    include: [main]
+pr:
+  branches:
+    include: [main]
+
+pool:
+  vmImage: macOS-15
+
+variables:
+  TARGET: arm64-apple-macosx14.0
+
+steps:
+  - script: |
+      sw_vers
+      xcode-select -p
+      swift --version
+    displayName: Toolchain
+
+  - script: ./scripts/check.sh
+    displayName: Type-check app and widget
+
+  - script: ./scripts/test.sh
+    displayName: Run tests
+
+  - script: ./scripts/build.sh --release --no-install
+    displayName: Build universal app bundle (ad-hoc signed)
+
+  - script: ./scripts/package.sh
+    displayName: Package zip + dmg
+
+  - task: PublishPipelineArtifact@1
+    displayName: Publish artifacts
+    inputs:
+      targetPath: build/dist
+      artifact: Paperclip-macOS

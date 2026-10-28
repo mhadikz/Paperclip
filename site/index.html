@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paperclip — a private clipboard manager for macOS</title>
+  <meta name="description" content="Paperclip keeps everything you copy one keystroke away. Free, open source, local-only clipboard history for macOS with optional on-device AI Memory." />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#000814" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta property="og:title" content="Paperclip for macOS" />
+  <meta property="og:description" content="Everything you copy, one keystroke away. Private, open source, on-device." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/history-dark.png" />
+  <link rel="icon" type="image/png" href="assets/app-icon.png" />
+  <link rel="apple-touch-icon" href="assets/app-icon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top">
+    <nav class="wrap nav" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="Paperclip home">
+        <svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+        <span>Paperclip</span>
+      </a>
+      <ul class="links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#memory">AI Memory</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#install">Install</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="icon-btn" id="theme" type="button" aria-label="Toggle light and dark appearance" title="Appearance">
+          <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg>
+        </button>
+        <a class="btn ghost small" data-repo-link href="https://github.com/mhadikz/Paperclip">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="gh"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2.1c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.2.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span> Free · Open source · macOS 14 Sonoma or later</p>
+          <h1>Everything you copy, <br />one keystroke away.</h1>
+          <p class="lede">
+            Paperclip is a clipboard manager that lives in your menu bar. Press
+            <kbd>⇧</kbd><kbd>⌘</kbd><kbd>V</kbd>, pick a clip, and it lands back in the app you were
+            working in. Text, links, images and files. Nothing leaves your Mac.
+          </p>
+          <div class="cta">
+            <a class="btn primary" id="download" href="https://github.com/mhadikz/Paperclip/releases/latest/download/Paperclip-1.3.0.dmg">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg>
+              Download for Mac
+            </a>
+            <a class="btn ghost" data-repo-link href="https://github.com/mhadikz/Paperclip">View the source</a>
+          </div>
+          <p class="fineprint">
+            <span id="release-meta">Version 1.3.0 · Universal (Apple Silicon &amp; Intel) · DMG</span>
+            · <a href="#checksum">verify checksum</a>
+          </p>
+        </div>
+
+        <figure class="hero-shot">
+          <div class="device">
+            <img class="shot shot-dark" src="assets/history-dark.png" width="920" height="1360" alt="Paperclip History panel in dark appearance: a search field, a list of recent clips with type badges, and the shortcut hints in the footer." />
+            <img class="shot shot-light" src="assets/history-light.png" width="920" height="1360" alt="Paperclip History panel in light appearance." />
+          </div>
+          <figcaption class="chip-row" aria-label="Open History with Shift Command V">
+            <span class="keycap">⇧</span><span class="keycap">⌘</span><span class="keycap">V</span>
+            <span class="chip-label">opens History anywhere</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Proof strip -->
+    <section class="strip" aria-label="At a glance">
+      <div class="wrap strip-grid">
+        <div><strong>0</strong><span>accounts, servers, trackers</span></div>
+        <div><strong>100%</strong><span>on-device, including the AI</span></div>
+        <div><strong>MIT</strong><span>licensed, readable Swift, 77 tests</span></div>
+        <div><strong>1 build</strong><span>Apple Silicon and Intel, universal</span></div>
+      </div>
+    </section>
+
+    <!-- Keyboard -->
+    <section class="section" id="keyboard">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">Built for the keyboard</p>
+          <h2>Your hands never leave the home row.</h2>
+          <p class="sub">The History panel opens without stealing focus, so the clip you choose is pasted into the app you came from. Every action has a key.</p>
+        </div>
+        <ul class="keys" role="list">
+          <li><span class="combo"><kbd>⇧</kbd><kbd>⌘</kbd><kbd>V</kbd></span><span>Open History (customizable)</span></li>
+          <li><span class="combo"><kbd>↑</kbd><kbd>↓</kbd></span><span>Move between clips</span></li>
+          <li><span class="combo"><kbd>↩</kbd></span><span>Paste into the previous app</span></li>
+          <li><span class="combo"><kbd>⇧</kbd><kbd>↩</kbd></span><span>Paste as plain text</span></li>
+          <li><span class="combo"><kbd>⌘</kbd><kbd>1</kbd>–<kbd>9</kbd></span><span>Quick-paste the first nine</span></li>
+          <li><span class="combo"><kbd>⌘</kbd><kbd>Y</kbd></span><span>Full-size preview</span></li>
+          <li><span class="combo"><kbd>⌘</kbd><kbd>F</kbd></span><span>Search history and memory</span></li>
+          <li><span class="combo"><kbd>⌘</kbd><kbd>C</kbd></span><span>Copy without pasting</span></li>
+          <li><span class="combo"><kbd>⌘</kbd><kbd>⌫</kbd></span><span>Delete a clip</span></li>
+          <li><span class="combo"><kbd>⎋</kbd></span><span>Back, then close</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section alt" id="features">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">Features</p>
+          <h2>A serious clipboard, nothing in the way.</h2>
+        </div>
+        <ul class="features" role="list">
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <h3>Instant history</h3>
+            <p>Captures text, links, images and files the moment you copy. Identical copies collapse into one clip and keep their pins, favorites and tags.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 10l-5 5 5 5"/><path d="M20 4v7a4 4 0 0 1-4 4H4"/></svg>
+            <h3>Paste where you were</h3>
+            <p>The panel is non-activating. Choose a clip and Paperclip sends ⌘V to the app that had focus. Without Accessibility access it simply copies.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>
+            <h3>Rich text, preserved</h3>
+            <p>Bold, links and colors are kept as an RTF sidecar and restored on paste. Hold ⇧ when you want plain text instead.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <h3>Images with OCR, files too</h3>
+            <p>Screenshots are deduplicated by content and their text is recognised on-device, so you can search for words inside an image. File copies stay file copies.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></svg>
+            <h3>Pinboards and favorites</h3>
+            <p>Group clips into colored boards, star the ones you return to, queue a paste stack, rename clips, open links, reveal files, drag clips out.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+            <h3>Widget, themes, glass</h3>
+            <p>A desktop and Notification Center widget, Light, Dark or System appearance, Liquid Glass on macOS 26 and an opaque mode when you prefer Reduce Transparency.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- AI Memory -->
+    <section class="section" id="memory">
+      <div class="wrap split">
+        <div class="split-copy">
+          <p class="kicker">AI Memory · optional</p>
+          <h2>Ask for the thing, not the timestamp.</h2>
+          <p class="sub">
+            With Apple Intelligence available, Paperclip classifies, tags and summarises clips on-device and
+            understands plain questions. Without it, a fast heuristic layer does the same job with keywords.
+            Either way, nothing is sent anywhere.
+          </p>
+          <ul class="queries" aria-label="Example searches">
+            <li>“the docker command from last week”</li>
+            <li>“that JSON with the API response”</li>
+            <li>“links I copied yesterday afternoon”</li>
+          </ul>
+          <ul class="ticks" role="list">
+            <li>Categories, tags and one-line summaries per clip</li>
+            <li>Smart actions: explain, rewrite, format JSON, extract</li>
+            <li>AI data is a sidecar. Clear it any time; history stays</li>
+            <li>Turn AI off entirely and the app is still complete</li>
+          </ul>
+        </div>
+        <figure class="split-shot">
+          <div class="device">
+            <img src="assets/memory-search-dark.png" width="920" height="1360" alt="AI Memory view showing a natural-language search and matching clips with tags and summaries." loading="lazy" />
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Privacy -->
+    <section class="section privacy" id="privacy">
+      <div class="wrap">
+        <div class="privacy-panel">
+          <div class="privacy-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+            <div>
+              <p class="kicker">Privacy</p>
+              <h2>Your clipboard is the most sensitive thing on your Mac. It stays there.</h2>
+            </div>
+          </div>
+          <div class="privacy-grid">
+            <div>
+              <h3>No network, by design</h3>
+              <p>No account, no server, no analytics, no update pings. The source is public, so you can check.</p>
+            </div>
+            <div>
+              <h3>Secrets are skipped</h3>
+              <p>Likely passwords, API keys, private keys and card numbers are not stored. Concealed copies from password managers are always ignored.</p>
+            </div>
+            <div>
+              <h3>You control the scope</h3>
+              <p>Exclude apps, pause recording from the menu bar, hide the panel from screen sharing, and set how many clips to keep.</p>
+            </div>
+            <div>
+              <h3>Plain files you own</h3>
+              <p>History is JSON and PNG in your home folder. Back it up, inspect it, or delete it. Clearing AI metadata never touches history.</p>
+            </div>
+          </div>
+          <pre class="path"><code>~/Library/Application Support/Paperclip/
+  history.json · pinboards.json · ai-metadata.json · Media/</code></pre>
+          <p class="privacy-links">
+            <a data-doc="docs/PRIVACY_SECURITY.md" href="https://github.com/mhadikz/Paperclip/blob/main/docs/PRIVACY_SECURITY.md">Privacy &amp; security notes</a> ·
+            <a data-doc="SECURITY.md" href="https://github.com/mhadikz/Paperclip/blob/main/SECURITY.md">Report a vulnerability</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Install -->
+    <section class="section alt" id="install">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">Install</p>
+          <h2>Two minutes, no account.</h2>
+        </div>
+        <ol class="steps">
+          <li>
+            <span class="num">1</span>
+            <div>
+              <h3>Download and drag to Applications</h3>
+              <p>Get <a id="download-inline" href="https://github.com/mhadikz/Paperclip/releases/latest/download/Paperclip-1.3.0.dmg">the latest DMG</a>, open it and drag Paperclip into Applications.</p>
+            </div>
+          </li>
+          <li>
+            <span class="num">2</span>
+            <div>
+              <h3>Open it once with right-click → Open</h3>
+              <p>Builds are signed but not notarized (no Apple Developer Program membership), so macOS shows “the developer cannot be verified” the first time. Right-click the app, choose <strong>Open</strong>, then <strong>Open</strong> again. Or from Terminal:</p>
+              <pre><code>xattr -d com.apple.quarantine /Applications/Paperclip.app</code></pre>
+            </div>
+          </li>
+          <li>
+            <span class="num">3</span>
+            <div>
+              <h3>Grant Accessibility if you want it to paste for you</h3>
+              <p>Settings → General shows the status and opens the right System Settings pane. Without it, Paperclip copies the clip and you press ⌘V yourself.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="two-col">
+          <div class="card" id="checksum">
+            <h3>Verify the download</h3>
+            <p>Every release ships a <code>SHA256SUMS.txt</code>. Compare before you open the DMG:</p>
+            <pre><code>shasum -a 256 -c SHA256SUMS.txt</code></pre>
+          </div>
+          <div class="card">
+            <h3>Or build it yourself</h3>
+            <p>Only the Command Line Tools are needed. Universal release builds take a few minutes.</p>
+            <pre><code>git clone <span data-clone-url>https://github.com/mhadikz/Paperclip.git</span>
+cd Paperclip
+./scripts/build.sh</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-grid">
+      <div class="foot-brand">
+        <svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+        <div>
+          <strong>Paperclip</strong>
+          <p>© 2026 mhadikz · MIT License</p>
+        </div>
+      </div>
+      <ul class="foot-links">
+        <li><a data-doc="CHANGELOG.md" href="https://github.com/mhadikz/Paperclip/blob/main/CHANGELOG.md">Changelog</a></li>
+        <li><a data-doc="CONTRIBUTING.md" href="https://github.com/mhadikz/Paperclip/blob/main/CONTRIBUTING.md">Contributing</a></li>
+        <li><a data-doc="docs/INDEX.md" href="https://github.com/mhadikz/Paperclip/blob/main/docs/INDEX.md">Documentation</a></li>
+        <li><a data-repo-link="issues" href="https://github.com/mhadikz/Paperclip/issues">Issues</a></li>
+        <li><a data-repo-link="releases" href="https://github.com/mhadikz/Paperclip/releases">All releases</a></li>
+      </ul>
+    </div>
+    <p class="wrap foot-note">This page is static and loads no third-party scripts, fonts or trackers. The only request it makes is to GitHub, to show the current release.</p>
+  </footer>
+
+  <script src="site.js"></script>
+</body>
+</html>
